@@ -1,0 +1,379 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #111;
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game {
+    width: 100%;
+    max-width: 900px;
+
+    padding: 30px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+#header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#header h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+#header p {
+    margin-top: 5px;
+    color: #aaa;
+}
+
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: none;
+
+    padding: 15px 25px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   PROMPT
+========================= */
+
+#prompt {
+    font-size: 32px;
+
+    margin: 40px auto;
+
+    max-width: 700px;
+}
+
+
+/* =========================
+   ANSWERS
+========================= */
+
+#answer-input {
+    width: 80%;
+
+    padding: 15px;
+
+    font-size: 20px;
+
+    border-radius: 8px;
+
+    border: none;
+}
+
+#submit-answer {
+    margin-top: 8px;
+}
+
+
+/* =========================
+   RATINGS
+========================= */
+
+#rating-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 30px 0;
+}
+
+.rating-button {
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+}
+
+
+/* =========================
+   PRIORITIES
+========================= */
+
+#priority-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    max-width: 500px;
+
+    margin: auto;
+}
+
+.priority-option {
+    padding: 20px;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   JUDGE ANSWERS
+========================= */
+
+#judge-answers {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    max-width: 600px;
+
+    margin: 30px auto;
+}
+
+.judge-answer {
+    padding: 20px;
+
+    background: #222;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.judge-answer.selected {
+    outline: 3px solid white;
+}
+
+
+/* =========================
+   SCOREBOARD
+========================= */
+
+#scores {
+    max-width: 500px;
+
+    margin: auto;
+}
+
+.score-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px;
+
+    background: #222;
+
+    margin-bottom: 5px;
+
+    border-radius: 5px;
+}
+
+/* =========================
+   SUBMISSIONS
+========================= */
+
+#submitted-answers {
+    margin-top: 30px;
+}
+
+#submission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.submission {
+    padding: 15px;
+
+    background: #222;
+
+    border-radius: 8px;
+}
+
+#additional-submission,
+#move-to-judging {
+    margin: 5px;
+}
+
+/* =========================
+   GAME SETUP
+========================= */
+
+#player-count-section {
+    margin-bottom: 30px;
+}
+
+#player-count {
+    margin-left: 10px;
+
+    padding: 8px;
+
+    font-size: 16px;
+}
+
+#player-names {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    max-width: 400px;
+
+    margin: 0 auto 30px;
+}
+
+.player-name-input {
+    padding: 12px;
+
+    font-size: 18px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    width: 100%;
+}
+
+/* =========================
+   SELECTED ANSWER
+========================= */
+
+.rating-button,
+.priority-option,
+.judge-answer {
+    transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background-color 0.1s ease;
+}
+
+
+/* Selected button */
+
+.rating-button.selected,
+.priority-option.selected,
+.judge-answer.selected {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 0 4px #ffffff,
+        0 0 0 7px #000000;
+
+    font-weight: bold;
+}
+
+.rating-button:hover,
+.priority-option:hover,
+.judge-answer:hover {
+    transform: scale(1.03);
+}
+
+.rating-button.selected:hover,
+.priority-option.selected:hover,
+.judge-answer.selected:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   CATEGORY SELECTION
+========================= */
+
+#category-selection {
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+#category-selection-label {
+    font-size: 20px;
+
+    color: #aaa;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+#category-spinner {
+    font-size: 48px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transition:
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+/* Winning category */
+
+#category-spinner.category-winner {
+    color: #4ade80;
+
+    transform: scale(1.25);
+
+    text-shadow:
+        0 0 10px rgba(74, 222, 128, 0.7),
+        0 0 25px rgba(74, 222, 128, 0.4);
+}
